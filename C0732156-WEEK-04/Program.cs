@@ -12,7 +12,8 @@ namespace C0732156_WEEK_04
     {
         static void Main(string[] args)
         {
-
+            Countryside blue = new Countryside();
+            blue.Lunch();
         }
     }
 
@@ -28,15 +29,19 @@ namespace C0732156_WEEK_04
     class Countryside
     {
         village Maple = new village();
-       
         village Toronto = new village();
-        
         village Ajax = new village();
+
         village First;
+        village Last;
+        village temp;
+       
       
         public void Lunch()
         {
            
+            First = Maple;
+            Last = Ajax;
             Maple.VillageName = "Maple";
             Maple.nextVillage = Toronto;
             Maple.previousvillage = null;
@@ -46,8 +51,20 @@ namespace C0732156_WEEK_04
             Ajax.VillageName = "Ajax";
             Ajax.nextVillage = null;
             Ajax.previousvillage = Toronto;
+            Console.WriteLine(this.displayMap());
 
+        }
+        public string displayMap()
+        {
+            string listOfCities = "";
+            // What problem do I need to solve?
+            // we need to print all the cities in our area
 
+        listOfCities = listOfCities + First.VillageName;
+                temp = First.nextVillage;
+                listOfCities = listOfCities + temp.VillageName;
+ 
+            return listOfCities;
         }
     }
 }
